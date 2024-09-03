@@ -1,29 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tjiranar <tjiranar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/28 04:50:26 by tjiranar          #+#    #+#             */
-/*   Updated: 2024/09/04 01:43:56 by tjiranar         ###   ########.fr       */
+/*   Created: 2024/09/04 01:55:27 by tjiranar          #+#    #+#             */
+/*   Updated: 2024/09/04 02:16:19 by tjiranar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
 
-void	*ft_calloc(size_t count, size_t size)
+char	**ft_split(char const *s, char c)
 {
-	unsigned char	*tmp;
-	size_t			i;
+	
+}
+
+int	word_count(char const *s, char c)
+{
+	int	i;
+	int	count;
+
+	count = 0;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == c && s[i + 1] != c)
+			count++;
+		else if (s[i] != c && s[i + 1] == '\0')
+			count++;
+		i++;
+	}
+	return (count);
+}
+
+void	free_arr(char **str, int count)
+{
+	int	i;
 
 	i = 0;
-	if (count != 0 && size > INT_MAX / count)
-		return (NULL);
-	tmp = malloc(count * size);
-	if (!tmp)
-		return (NULL);
-	ft_memset(tmp, 0, count * size);
-	return ((void *)tmp);
+	while (i < count)
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }
