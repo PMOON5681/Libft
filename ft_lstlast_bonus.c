@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tjiranar <tjiranar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/28 23:15:46 by tjiranar          #+#    #+#             */
-/*   Updated: 2024/09/07 00:49:07 by tjiranar         ###   ########.fr       */
+/*   Created: 2024/09/07 01:18:13 by tjiranar          #+#    #+#             */
+/*   Updated: 2024/09/07 01:43:44 by tjiranar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
-	char	*str;
+	t_list	*counter;
 
-	if (!s)
+	if (!lst)
 		return (NULL);
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	if (ft_strlen(s + start) < len)
-		len = ft_strlen(s + start);
-	str = (char *)malloc((len + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (i < len)
+	counter = lst;
+	while (counter)
 	{
-		str[i] = s[start + i];
-		i++;
+		if (counter->next == NULL)
+			return (counter);
+		counter = counter->next;
 	}
-	str[i] = '\0';
-	return (str);
+	return (counter);
 }
-
-// int	main(void)
-// {
-// 	printf("%s)
-// }

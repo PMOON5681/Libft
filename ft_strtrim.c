@@ -6,13 +6,13 @@
 /*   By: tjiranar <tjiranar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 03:42:57 by tjiranar          #+#    #+#             */
-/*   Updated: 2024/09/03 21:34:19 by tjiranar         ###   ########.fr       */
+/*   Updated: 2024/09/07 06:51:02 by tjiranar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	check_trim(char c, char const *set);
+static int	check_trim(char c, char const *set);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -41,7 +41,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (trimed);
 }
 
-int	check_trim(char c, char const *set)
+static int	check_trim(char c, char const *set)
 {
 	size_t	i;
 

@@ -6,13 +6,13 @@
 /*   By: tjiranar <tjiranar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 22:36:33 by tjiranar          #+#    #+#             */
-/*   Updated: 2024/09/03 23:33:14 by tjiranar         ###   ########.fr       */
+/*   Updated: 2024/09/07 06:50:00 by tjiranar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	countchar(int n);
+static int	countchar(int n);
 
 char	*ft_itoa(int n)
 {
@@ -42,7 +42,7 @@ char	*ft_itoa(int n)
 	return (s);
 }
 
-int	countchar(int n)
+static int	countchar(int n)
 {
 	int	c;
 

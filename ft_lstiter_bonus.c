@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tjiranar <tjiranar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/28 23:15:46 by tjiranar          #+#    #+#             */
-/*   Updated: 2024/09/07 00:49:07 by tjiranar         ###   ########.fr       */
+/*   Created: 2024/09/07 02:05:31 by tjiranar          #+#    #+#             */
+/*   Updated: 2024/09/07 02:15:40 by tjiranar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	size_t	i;
-	char	*str;
+	t_list	*tmp;
 
-	if (!s)
-		return (NULL);
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	if (ft_strlen(s + start) < len)
-		len = ft_strlen(s + start);
-	str = (char *)malloc((len + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (i < len)
+	tmp = lst;
+	while (tmp)
 	{
-		str[i] = s[start + i];
-		i++;
+		f(tmp->content);
+		tmp = tmp->next;
 	}
-	str[i] = '\0';
-	return (str);
 }
-
-// int	main(void)
-// {
-// 	printf("%s)
-// }
